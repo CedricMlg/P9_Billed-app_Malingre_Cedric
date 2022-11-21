@@ -101,7 +101,7 @@ describe("Given I am connected as an employee", () => {
       const handleClickIconEye = jest.fn(employeePage.handleClickIconEye)
       const eye = screen.getAllByTestId('icon-eye')[0]
       $.fn.modal = jest.fn()
-      eye.addEventListener('click', handleClickIconEye)
+      eye.addEventListener('click', () => handleClickIconEye(eye))
       userEvent.click(eye)
       expect(handleClickIconEye).toHaveBeenCalled()
 
